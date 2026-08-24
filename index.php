@@ -33,45 +33,77 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 
-//  ===================================== EXERCICIO 1 (RETANGULO) =====================================
+// //  ===================================== EXERCICIO 1 (RETANGULO) =====================================
 
-use App\Retangulo;
+// use App\Retangulo;
 
-$R1 = new Retangulo(20, 12);
-$R2 = new Retangulo(18, 15);
-$R3 = new Retangulo(4, 4);
-function DescobreQuadrado($retangulo){
-    if ($retangulo->ehQuadrado()){
-        $repo =  "É um quadrado!";
-} else {    
-        $repo = "NÃO É um quadrado!";
-}
-    return $repo;
-}
+// $R1 = new Retangulo(20, 12);
+// $R2 = new Retangulo(18, 15);
+// $R3 = new Retangulo(4, 4);
+// function DescobreQuadrado($retangulo){
+//     if ($retangulo->ehQuadrado()){
+//         $repo =  "É um quadrado!";
+// } else {    
+//         $repo = "NÃO É um quadrado!";
+// }
+//     return $repo;
+// }
 
-function InformacoesGerais($retangulo, $nome){
-    echo "\n\n==================== Em relação ao {$nome} ====================\n\n";
-    echo $retangulo->CalcularArea();
-    echo "\n";
-    echo $retangulo->CalcularPerimetro();
-    echo "\n";
-    echo DescobreQuadrado($retangulo);
-    echo "\n\n===================================================================\n\n";
+// function InformacoesGerais($retangulo, $nome){
+//     echo "\n\n==================== Em relação ao {$nome} ====================\n\n";
+//     echo $retangulo->CalcularArea();
+//     echo "\n";
+//     echo $retangulo->CalcularPerimetro();
+//     echo "\n";
+//     echo DescobreQuadrado($retangulo);
+//     echo "\n\n===================================================================\n\n";
 
-}
-
-
-InformacoesGerais($R1, "retangulo 1");
-InformacoesGerais($R2, "retangulo 2");
-InformacoesGerais($R3, "retangulo 3");
+// }
 
 
-echo "\n\nRecalibrando area do retangulo 1...\n\n";
-$R1->Redimensionar(30, 10);
+// InformacoesGerais($R1, "retangulo 1");
+// InformacoesGerais($R2, "retangulo 2");
+// InformacoesGerais($R3, "retangulo 3");
+
+// echo "\n\nRecalibrando area do retangulo 1...\n\n";
+// $R1->Redimensionar(30, 10);
+
+// InformacoesGerais($R1, "retangulo 1");
 
 
-InformacoesGerais($R1, "retangulo 1");
 
 
+
+
+//  ===================================== EXERCICIO 2 (CONTA BANCÁRIA) =====================================
+
+use App\ContaBancaria;
+
+$C1 = new ContaBancaria("Felipe Ferro", 15.99);
+$C2 = new ContaBancaria("Julio Martins", 321.41);
+
+echo "\n";
+echo "Saldo inicial: ";
+echo $C1->ConsultarSaldo() . PHP_EOL;
+$C1->Depositar(20);
+echo "Saldo pós deposito: ";
+echo $C1->ConsultarSaldo() . PHP_EOL;
+$C1->Sacar(30);
+echo "Saldo pós saque: ";
+echo $C1->ConsultarSaldo() . PHP_EOL;
+echo "\n";
+
+// ==================================== TESTES DE SAQUE E SALDO INVÁLIDO ====================================
+
+// $C1->Depositar(-20);
+// $C1->Depositar(0);
+// $C1->Sacar(10000000);
+// $C1->Sacar(0);
+
+echo "\n";
+echo $C1->Resumo();
+echo "\n\n==========================================\n\n";
+echo $C2->Resumo();
+echo "\n\n";
 
 ?>
