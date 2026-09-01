@@ -1,0 +1,12 @@
+{
+    "name": "aula/24.08.26-poo-valdir",
+    "description": "Projeto de POO com o professor Valdir",
+    "require": {
+        "php": "^8.4"
+    },
+    "autoload": {
+        "psr-4": { 
+            "App\\": "src/"
+        }
+    }
+}
