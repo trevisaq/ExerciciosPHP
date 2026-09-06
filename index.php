@@ -172,19 +172,53 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 // //  ================================= EXERCICIO 4 (PRODUTO DE E-COMMERCE) =================================
 
-use App\ProdutoEstoque;
+// use App\ProdutoEstoque;
 
-$P1 = new ProdutoEstoque('Sabão', 15.99, 20);
-$P2 = new ProdutoEstoque('Chocolate', 18.99, 10);
+// $P1 = new ProdutoEstoque('Sabão', 15.99, 20);
+// $P2 = new ProdutoEstoque('Chocolate', 18.99, 10);
 
-echo $P1->Resumo() . PHP_EOL;
+// echo $P1->Resumo() . PHP_EOL;
 
-echo "\n===============APÓS ALTERAÇÕES===============\n\n";
+// echo "\n===============APÓS ALTERAÇÕES===============\n\n";
 
-$P1->reservar(15); // de 20 unidades caiu pra 5
-$P1->repor(8); // de 5 unidades subiu pra 13
-$P1->aplicarDesconto(20); // com o desconto de 20% o preco caiu de 15,99 para 12,79
+// $P1->reservar(15); // de 20 unidades caiu pra 5
+// $P1->repor(8); // de 5 unidades subiu pra 13
+// $P1->aplicarDesconto(20); // com o desconto de 20% o preco caiu de 15,99 para 12,79
 
-echo $P1->Resumo() . PHP_EOL;
+// echo $P1->Resumo() . PHP_EOL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ================================= EXERCICIO 5 (TERMOSTATO INTELIGENTE) =================================
+
+use App\TermostatoInteligente;
+
+$T1 = new TermostatoInteligente(25.0, 17.0);
+$T2 = new TermostatoInteligente(12.0, 22.0);
+
+echo "\n====================== TERMOSTADO 1 ======================\n\n";
+echo "Ação necessária: " . $T1->acaoNecessaria() . PHP_EOL; // Verifica que está desligado
+$T1->ligar(); // Envio a ação para ligar
+echo "Ação necessária: " . $T1->acaoNecessaria() . PHP_EOL; // Le a temperatura alvo e define a ação necessária.
+
+echo "\n====================== TERMOSTADO 2 ======================\n\n";
+
+$T2->ligar();
+echo "Ação necessária: " . $T2->acaoNecessaria() . PHP_EOL; // Le a temperatura alvo e define a ação necessária.
+$T2->atualizarTemperaturaAtual(22); // Atualiza a temperatura atual do termostato 2
+echo "Ação necessária: " . $T2->acaoNecessaria() . PHP_EOL; // Percebe a nova temperatura e define a nova ação (se manter)
+
 
 ?>
