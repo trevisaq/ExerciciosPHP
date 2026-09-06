@@ -33,6 +33,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 
+
+
+
+
+
+
+
+
+
+
 // //  ===================================== EXERCICIO 1 (RETANGULO) =====================================
 
 // use App\Retangulo;
@@ -75,35 +85,75 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 
-//  ===================================== EXERCICIO 2 (CONTA BANCÁRIA) =====================================
 
-use App\ContaBancaria;
 
-$C1 = new ContaBancaria("Felipe Ferro", 15.99);
-$C2 = new ContaBancaria("Julio Martins", 321.41);
 
-echo "\n";
-echo "Saldo inicial: ";
-echo $C1->ConsultarSaldo() . PHP_EOL;
-$C1->Depositar(20);
-echo "Saldo pós deposito: ";
-echo $C1->ConsultarSaldo() . PHP_EOL;
-$C1->Sacar(30);
-echo "Saldo pós saque: ";
-echo $C1->ConsultarSaldo() . PHP_EOL;
-echo "\n";
 
-// ==================================== TESTES DE SAQUE E SALDO INVÁLIDO ====================================
 
-// $C1->Depositar(-20);
-// $C1->Depositar(0);
-// $C1->Sacar(10000000);
-// $C1->Sacar(0);
 
-echo "\n";
-echo $C1->Resumo();
-echo "\n\n==========================================\n\n";
-echo $C2->Resumo();
-echo "\n\n";
+
+
+
+// //  ===================================== EXERCICIO 2 (CONTA BANCÁRIA) =====================================
+
+// use App\ContaBancaria;
+
+// $C1 = new ContaBancaria("Felipe Ferro", 15.99);
+// $C2 = new ContaBancaria("Julio Martins", 321.41);
+
+// echo "\n";
+// echo "Saldo inicial: ";
+// echo $C1->ConsultarSaldo() . PHP_EOL;
+// $C1->Depositar(20);
+// echo "Saldo pós deposito: ";
+// echo $C1->ConsultarSaldo() . PHP_EOL;
+// $C1->Sacar(30);
+// echo "Saldo pós saque: ";
+// echo $C1->ConsultarSaldo() . PHP_EOL;
+// echo "\n";
+
+// // ==================================== TESTES DE SAQUE E SALDO INVÁLIDO ====================================
+
+// // $C1->Depositar(-20);
+// // $C1->Depositar(0);
+// // $C1->Sacar(10000000);
+// // $C1->Sacar(0);
+
+// echo "\n";
+// echo $C1->Resumo();
+// echo "\n\n==========================================\n\n";
+// echo $C2->Resumo();
+// echo "\n\n";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ========================================== EXERCICIO 3 (ALUNO) ==========================================
+
+use App\Aluno;
+
+$A1 = new Aluno('Felipe', 2199678, []);
+$A2 = new Aluno('Andersson', 2194578, [10, 8, 9, 0]);
+$A3 = new Aluno('Matheus', 3295678, [2, 2, 4, 7]);
+
+$A1->adicionarNota(8);
+$A1->adicionarNota(9);
+$A1->adicionarNota(10);
+$A1->adicionarNota(8);
+
+echo $A1->Resumo() . PHP_EOL;
+echo $A2->Resumo() . PHP_EOL;
+echo $A3->Resumo() . PHP_EOL;
 
 ?>
