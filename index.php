@@ -141,19 +141,50 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 //  ========================================== EXERCICIO 3 (ALUNO) ==========================================
 
-use App\Aluno;
+// use App\Aluno;
 
-$A1 = new Aluno('Felipe', 2199678, []);
-$A2 = new Aluno('Andersson', 2194578, [10, 8, 9, 0]);
-$A3 = new Aluno('Matheus', 3295678, [2, 2, 4, 7]);
+// $A1 = new Aluno('Felipe', 2199678, []);
+// $A2 = new Aluno('Andersson', 2194578, [10, 8, 9, 0]);
+// $A3 = new Aluno('Matheus', 3295678, [2, 2, 4, 7]);
 
-$A1->adicionarNota(8);
-$A1->adicionarNota(9);
-$A1->adicionarNota(10);
-$A1->adicionarNota(8);
+// $A1->adicionarNota(8);
+// $A1->adicionarNota(9);
+// $A1->adicionarNota(10);
+// $A1->adicionarNota(8);
 
-echo $A1->Resumo() . PHP_EOL;
-echo $A2->Resumo() . PHP_EOL;
-echo $A3->Resumo() . PHP_EOL;
+// echo $A1->Resumo() . PHP_EOL;
+// echo $A2->Resumo() . PHP_EOL;
+// echo $A3->Resumo() . PHP_EOL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //  ================================= EXERCICIO 4 (PRODUTO DE E-COMMERCE) =================================
+
+use App\ProdutoEstoque;
+
+$P1 = new ProdutoEstoque('Sabão', 15.99, 20);
+$P2 = new ProdutoEstoque('Chocolate', 18.99, 10);
+
+echo $P1->Resumo() . PHP_EOL;
+
+echo "\n===============APÓS ALTERAÇÕES===============\n\n";
+
+$P1->reservar(15); // de 20 unidades caiu pra 5
+$P1->repor(8); // de 5 unidades subiu pra 13
+$P1->aplicarDesconto(20); // com o desconto de 20% o preco caiu de 15,99 para 12,79
+
+echo $P1->Resumo() . PHP_EOL;
 
 ?>
