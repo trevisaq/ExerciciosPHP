@@ -391,48 +391,106 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 
 
-//  ===================================== EXERCICIO 9 (CONFIGURAÇÃO DE JOGO) =====================================
+// // ===================================== EXERCICIO 9 (CONFIGURAÇÃO DE JOGO) =====================================
 
-use App\ConfiguracaoJogo;
-$original = new ConfiguracaoJogo(80, "normal", True);
+// use App\ConfiguracaoJogo;
+// $original = new ConfiguracaoJogo(80, "normal", True);
 
-echo "\n================ CONFIG ORIGINAL ================\n";
-echo $original->resumo();
-echo "=================================================\n";
+// echo "\n================ CONFIG ORIGINAL ================\n";
+// echo $original->resumo();
+// echo "=================================================\n";
 
-$copia = clone $original; // Faço a instancia copia pra poder salvar a config original
-$atalho = $original; // Faço a instancia atalho pra poder alterar a config original indiretamente
+// $copia = clone $original; // Faço a instancia copia pra poder salvar a config original
+// $atalho = $original; // Faço a instancia atalho pra poder alterar a config original indiretamente
 
-$atalho->alterarDificuldade("facil");
-$atalho->alterarVolume(30);
-$atalho->alternarTelaCheia(false);
+// $atalho->alterarDificuldade("facil");
+// $atalho->alterarVolume(30);
+// $atalho->alternarTelaCheia(false);
 
 
+// echo "\n\n";
+// echo "\n------ VERIFICAÇÃO DE ATALHOS PÓS ALTERAÇÃO -----\n\n";
+
+// function ehIgual($config1, $config2){
+//     if ($config1 === $config2){
+//         return 'Sim!';
+//     } else {
+//         return 'Não!';
+//     }
+// }
+// echo "O Atalho é igual ao Original? " . ehIgual($atalho, $original) . PHP_EOL; // (os quais foram afetados pelo atalho, logo, sao iguais)
+// echo "A Copia é igual ao Original? " . ehIgual($copia, $original) . PHP_EOL; // (o qual o original foi alterado pelo atalho, logo a copia e o original são diferentes)
+// echo "\n\n";
+
+
+// echo "\n================== CONFIG COPIA =================\n";
+// echo $copia->resumo();
+// echo "=================================================\n";
+
+// echo "\n================ CONFIG ORIGINAL ================\n";
+// echo $original->resumo();
+// echo "=================================================\n";
+
+// echo "\n================== CONFIG ATALHO ================\n";
+// echo $atalho->resumo();
+// echo "=================================================\n";
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ======================================= EXERCICIO 10 (DRONE DE ENTREGA) =======================================
+
+use App\DroneEntrega;
+
+// Crio um drone somente com as informações que preciso, o identificador e a carga maxima (deixando o resto ser pré-setado pelo __construct)
+$PrimeiroDrone = new DroneEntrega("3128e36", 200); 
+$SegundoDrone = new DroneEntrega("4128e38", 100, "disponivel", 0, 100); // Demonstro que podeira sim definir as caracteristicas pelo index sem problema
+
+
+
+echo "\n\n-------------------- PRIMEIRA ENTREGA DO PRIMEIRO DRONE --------------------\n\n";
+$PrimeiroDrone->carregarPacote(155); // 1. Faço o drone coletar a carga de 155kg
+$PrimeiroDrone->decolar(6.2);        // 2. Faço o drone decolar definindo sua distância de viagem
+$PrimeiroDrone->finalizarEntrega();  // 3. Faço o drone finalizar a entrega e retornar a "base de abastecimento"
+$PrimeiroDrone->recarregar();        // 4. Restauro a carga do drone para 100%
+echo $PrimeiroDrone->status();       // 5. Mostro o status do drone após entregar o pacote e recarregar.
+echo "\n\n----------------------------------------------------------------------------\n\n";
+
+
+
+echo "\n\n--------------------- SEGUNDA ENTREGA DO PRIMEIRO DRONE --------------------\n\n";
+$PrimeiroDrone->carregarPacote(180); // 1. Faço o drone coletar a carga de 180kg
+$PrimeiroDrone->decolar(4.8);        // 2. Faço o drone decolar definindo sua distância de viagem
+$PrimeiroDrone->finalizarEntrega();  // 3. Faço o drone finalizar a entrega e retornar a "base de abastecimento"
+echo $PrimeiroDrone->status();       // 4. Mostro o status do drone após entregar o pacote (antes de recarregar).
+echo "\n\n----------------------------------------------------------------------------\n\n";
+
+
+
+
+echo "\n\n============================ DOIS DRONES EM CONJUNTO =======================\n\n";
+$PrimeiroDrone->recarregar();        // Restauro a carga do primeiro drone para 100%
+$PrimeiroDrone->carregarPacote(110); // 1. Faço o drone coletar a carga de 110kg
+$PrimeiroDrone->decolar(4);          // 2. Faço o drone decolar definindo sua distância de viagem
+
+$SegundoDrone->carregarPacote(50);   // 1. Faço o drone coletar a carga de 50kg
+$SegundoDrone->decolar(5);           // 2. Faço o drone decolar definindo sua distância de viagem
+$SegundoDrone->finalizarEntrega();   // 3. Faço o drone finalizar a entrega e retornar a "base de abastecimento"
+
+
+echo "DRONE 1: " . $PrimeiroDrone->status() . PHP_EOL;
 echo "\n\n";
-echo "\n------ VERIFICAÇÃO DE ATALHOS PÓS ALTERAÇÃO -----\n\n";
+echo "DRONE 2: " . $SegundoDrone->status();
+echo "\n\n============================================================================\n\n";
 
-function ehIgual($config1, $config2){
-    if ($config1 === $config2){
-        return 'Sim!';
-    } else {
-        return 'Não!';
-    }
-}
-echo "O Atalho é igual ao Original? " . ehIgual($atalho, $original) . PHP_EOL; // (os quais foram afetados pelo atalho, logo, sao iguais)
-echo "A Copia é igual ao Original? " . ehIgual($copia, $original) . PHP_EOL; // (o qual o original foi alterado pelo atalho, logo a copia e o original são diferentes)
-echo "\n\n";
-
-
-echo "\n================== CONFIG COPIA =================\n";
-echo $copia->resumo();
-echo "=================================================\n";
-
-echo "\n================ CONFIG ORIGINAL ================\n";
-echo $original->resumo();
-echo "=================================================\n";
-
-echo "\n================== CONFIG ATALHO ================\n";
-echo $atalho->resumo();
-echo "=================================================\n";
 
 ?>
