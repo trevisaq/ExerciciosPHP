@@ -339,4 +339,43 @@ require_once __DIR__ . '/vendor/autoload.php';
 // // echo $caramelo->status();
 // // echo "\n\n";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ====================================== EXERCICIO 8 (CARTEIRA DIGITAL) ======================================
+
+use App\CarteiraDigital;
+
+$CD1 = new CarteiraDigital("Felipe Motta", 25.50, 700, 0);
+echo $CD1->resumo();
+
+echo "\n\n";
+$CD1->receber(2000);
+echo "\n";
+$CD1->pagarPix(680);
+echo "\n";
+echo "Você possui um saldo de R$ " . $CD1->consultarSaldo() . PHP_EOL;
+echo "Você possui um limite diário de R$ " . $CD1->consultarLimiteDisponivel() . PHP_EOL;
+echo "\n";
+echo "================================ NOVO DIA SE INICIA ================================" . PHP_EOL;
+$CD1->iniciarNovoDia(); // Reinicio o gasto diário da conta, permitindo novas transições
+echo "====================================================================================" . PHP_EOL;
+echo "\n";
+echo "Você possui um saldo de R$ " . $CD1->consultarSaldo() . PHP_EOL;
+echo "Você possui um limite diário de R$ " . $CD1->consultarLimiteDisponivel() . PHP_EOL;
+echo "\n";
+$CD1->pagarPix(400);
+echo "\n";
+
+echo $CD1->resumo();
 ?>
