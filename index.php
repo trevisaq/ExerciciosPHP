@@ -236,44 +236,107 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 //  ====================================== EXERCICIO 6 (PERSONAGEM DE RPG) ======================================
 
-use App\PersonagemRPG;
+// use App\PersonagemRPG;
 
-$P1 = new PersonagemRPG("Eleven", 150, 150, 300);
-$P2 = new PersonagemRPG("Demogorgon", 300, 300, 250);
-
-
-echo $P1->status();
-echo"\n========================= FICHAS =========================\n";
-echo $P2->status();
+// $P1 = new PersonagemRPG("Eleven", 150, 150, 300);
+// $P2 = new PersonagemRPG("Demogorgon", 300, 300, 250);
 
 
-$P1->sofrerDano($P2->executarAtaque(80, 70));   
-echo"\n\n";
-echo "1. Demogorgon ataca eleven!!, (Vida de eleven cai de 150 para 80. energia de demogorgon cai de 250 para 170)";
-echo"\n";
-$P1->curar(30); // Vida de Eleven sobe de 80 para 110
-echo"\n";
-echo "2. Eleven decide se curar para recuperar o hp perdido!!, (Vida de eleven sobe 30 pontos)";
-echo"\n";
-$P2->descansar(); // Demogorgon decide descansar para recuperar pontos de energia (170 -> 200)
-echo"\n";
-echo "3. Demogordon decide se curar!! (demogorgon recupera 30 pontos de energia)";
-echo"\n";
-$P2->sofrerDano($P1->executarAtaque(280, 500));
-echo"\n";
-echo "4. Eleven utiliza toda sua energia para matar Demogorgon com um ataque surpresa!!! (A vida de demogorgon e a energia de Eleven zera)";
-echo"\n\n";
+// echo $P1->status();
+// echo"\n========================= FICHAS =========================\n";
+// echo $P2->status();
 
 
-echo $P1->status();
-echo"\n========================= FICHAS PÓS BATALHA =========================\n";
-echo $P2->status();
+// $P1->sofrerDano($P2->executarAtaque(80, 70));   
+// echo"\n\n";
+// echo "1. Demogorgon ataca eleven!!, (Vida de eleven cai de 150 para 80. energia de demogorgon cai de 250 para 170)";
+// echo"\n";
+// $P1->curar(30); // Vida de Eleven sobe de 80 para 110
+// echo"\n";
+// echo "2. Eleven decide se curar para recuperar o hp perdido!!, (Vida de eleven sobe 30 pontos)";
+// echo"\n";
+// $P2->descansar(); // Demogorgon decide descansar para recuperar pontos de energia (170 -> 200)
+// echo"\n";
+// echo "3. Demogordon decide se curar!! (demogorgon recupera 30 pontos de energia)";
+// echo"\n";
+// $P2->sofrerDano($P1->executarAtaque(280, 500));
+// echo"\n";
+// echo "4. Eleven utiliza toda sua energia para matar Demogorgon com um ataque surpresa!!! (A vida de demogorgon e a energia de Eleven zera)";
+// echo"\n";
+// if ($P2->estaVivo()){
+//     echo "\nDemogorgon segue com vida!";
+// } else{
+//     echo "\nDemogorgon foi derrotado!!!";
+// }
+// echo"\n\n";
+
+
+// echo $P1->status();
+// echo"\n========================= FICHAS PÓS BATALHA =========================\n";
+// echo $P2->status();
 
 
 // echo"\n========================= TESTES PÓS BATALHA =========================\n";
 
+
 // $P1->executarAtaque(280, 500); // Erro ao tentar realizar ataque sem energia
 // $P1->curar(500); // Erro ao tentar curar a vida acima da vida máxima
 // echo $P1->status();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //  ====================================== EXERCICIO 7 (PET VIRTUAL) ======================================
+
+// use App\PetVirtual;
+
+// $caramelo = new PetVirtual("Caramelo", 10, 60, 50);
+
+// echo $caramelo->status();
+// echo "\n\n";
+// $caramelo->brincar("lutinha");
+// $caramelo->brincar("correr");
+// $caramelo->brincar("pular");
+// $caramelo->brincar("rolar");
+// echo "\n";
+// $caramelo->alimentar("biscoitos scooby");
+// echo "\n";
+// $caramelo->dormir();
+// echo "\n\n";
+// echo $caramelo->status();
+// echo "\n\n";
+
+// // echo"\n========================= TESTES DE LIMITADOR =========================\n";
+
+// // // O DOG ENTROU EM COMA
+// // $caramelo->dormir();
+// // $caramelo->dormir();
+// // $caramelo->dormir();
+// // $caramelo->dormir();
+// // $caramelo->dormir();
+// // echo "\n\n";
+// // echo $caramelo->status();
+// // echo "\n\n";
+// // // O DOG FICOU DOIDO
+// // $caramelo->brincar("correr");
+// // $caramelo->brincar("correr");
+// // $caramelo->brincar("correr");
+// // $caramelo->brincar("correr");
+// // $caramelo->brincar("correr");
+// // $caramelo->brincar("correr");
+// // echo "\n\n";
+// // echo $caramelo->status();
+// // echo "\n\n";
 
 ?>
