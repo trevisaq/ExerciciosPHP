@@ -2,10 +2,9 @@
 
 namespace App;
 use InvalidArgumentException;
-
 class CarteiraDigital
 {
-    // Função inicializadore, exeuctada apenas qunado um objeto é criado
+    // Função inicializadora, executada apenas qunado um objeto é criado
     public function __construct(
         private string $proprietario,
         private float $saldo,

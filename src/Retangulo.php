@@ -1,10 +1,10 @@
 <?php
 
 namespace App;
-
 use InvalidArgumentException;
 class Retangulo
 {
+    // Função inicializadora, executada apenas qunado um objeto é criado
     public function __construct(
         private float $altura,
         private float $largura

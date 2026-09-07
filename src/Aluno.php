@@ -2,27 +2,25 @@
 
 namespace App;
 use InvalidArgumentException;
-
 class Aluno
 {
-    // Função inicializadore, exeuctada apenas qunado um objeto é criado
+    // Função inicializadora, executada apenas qunado um objeto é criado
     public function __construct(
-        private string $Nome,
-        private int $RA,
-        private array $Notas
+        private string $nome,
+        private int $ra,
+        private array $notas
     ) {
-        if (trim($this->Nome) === ''){
+        if (trim($this->nome) === ''){
             throw new InvalidArgumentException("É necessário informar o nome do aluno");
         }
-        if ($this->RA <= 0){
+        if ($this->ra <= 0){
             throw new InvalidArgumentException("É necessário informar o RA do aluno");
         }
     }
-    public function adicionarNota(float $Nota): void
+    public function adicionarNota(float $nota): void
     {
-        if($Nota >= 0 && $Nota <= 10){
-            // $this->Notas = $Nota;
-            $this->Notas[] = $Nota;
+        if($nota >= 0 && $nota <= 10){
+            $this->notas[] = $nota;
         } else{
             throw new InvalidArgumentException("Informe uma nota válida! (De 0 a 10)");
         }
@@ -30,10 +28,10 @@ class Aluno
 
     public function CalcularMedia(): float
     {
-        if(count($this->Notas) <= 1){
+        if(count($this->notas) <= 1){
             echo "Ainda não existem notas suficientes cadastradas para calcular a média!";
         } else{
-            return array_sum($this->Notas) / count($this->Notas); // Soma todos os valores e divide pela quantidade de valores
+            return array_sum($this->notas) / count($this->notas); // Soma todos os valores e divide pela quantidade de valores
         }
     }
 
@@ -50,7 +48,7 @@ class Aluno
 
     public function Resumo(): string
     {
-        return "O aluno " . $this->Nome . " possui média " . $this->CalcularMedia() . " e está " . $this->Situacao();
+        return "O aluno " . $this->nome . " possui média " . $this->CalcularMedia() . " e está " . $this->Situacao();
     }
 
 }

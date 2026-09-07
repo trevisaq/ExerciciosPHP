@@ -5,7 +5,7 @@
 namespace App;
 class Pessoa
 {
-    // Função inicializadore, exeuctada apenas qunado um objeto é criado
+    // Função inicializadora, executada apenas qunado um objeto é criado
     public function __construct(
         public string $nome,
         public int $idade

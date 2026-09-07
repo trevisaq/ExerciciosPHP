@@ -354,28 +354,85 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 //  ====================================== EXERCICIO 8 (CARTEIRA DIGITAL) ======================================
 
-use App\CarteiraDigital;
+// use App\CarteiraDigital;
 
-$CD1 = new CarteiraDigital("Felipe Motta", 25.50, 700, 0);
-echo $CD1->resumo();
+// $CD1 = new CarteiraDigital("Felipe Motta", 25.50, 700, 0);
+// echo $CD1->resumo();
+
+// echo "\n\n";
+// $CD1->receber(2000);
+// echo "\n";
+// $CD1->pagarPix(680);
+// echo "\n";
+// echo "Você possui um saldo de R$ " . $CD1->consultarSaldo() . PHP_EOL;
+// echo "Você possui um limite diário de R$ " . $CD1->consultarLimiteDisponivel() . PHP_EOL;
+// echo "\n";
+// echo "================================ NOVO DIA SE INICIA ================================" . PHP_EOL;
+// $CD1->iniciarNovoDia(); // Reinicio o gasto diário da conta, permitindo novas transições
+// echo "====================================================================================" . PHP_EOL;
+// echo "\n";
+// echo "Você possui um saldo de R$ " . $CD1->consultarSaldo() . PHP_EOL;
+// echo "Você possui um limite diário de R$ " . $CD1->consultarLimiteDisponivel() . PHP_EOL;
+// echo "\n";
+// $CD1->pagarPix(400);
+// echo "\n";
+
+// echo $CD1->resumo();
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ===================================== EXERCICIO 9 (CONFIGURAÇÃO DE JOGO) =====================================
+
+use App\ConfiguracaoJogo;
+$original = new ConfiguracaoJogo(80, "normal", True);
+
+echo "\n================ CONFIG ORIGINAL ================\n";
+echo $original->resumo();
+echo "=================================================\n";
+
+$copia = clone $original; // Faço a instancia copia pra poder salvar a config original
+$atalho = $original; // Faço a instancia atalho pra poder alterar a config original indiretamente
+
+$atalho->alterarDificuldade("facil");
+$atalho->alterarVolume(30);
+$atalho->alternarTelaCheia(false);
+
 
 echo "\n\n";
-$CD1->receber(2000);
-echo "\n";
-$CD1->pagarPix(680);
-echo "\n";
-echo "Você possui um saldo de R$ " . $CD1->consultarSaldo() . PHP_EOL;
-echo "Você possui um limite diário de R$ " . $CD1->consultarLimiteDisponivel() . PHP_EOL;
-echo "\n";
-echo "================================ NOVO DIA SE INICIA ================================" . PHP_EOL;
-$CD1->iniciarNovoDia(); // Reinicio o gasto diário da conta, permitindo novas transições
-echo "====================================================================================" . PHP_EOL;
-echo "\n";
-echo "Você possui um saldo de R$ " . $CD1->consultarSaldo() . PHP_EOL;
-echo "Você possui um limite diário de R$ " . $CD1->consultarLimiteDisponivel() . PHP_EOL;
-echo "\n";
-$CD1->pagarPix(400);
-echo "\n";
+echo "\n------ VERIFICAÇÃO DE ATALHOS PÓS ALTERAÇÃO -----\n\n";
 
-echo $CD1->resumo();
+function ehIgual($config1, $config2){
+    if ($config1 === $config2){
+        return 'Sim!';
+    } else {
+        return 'Não!';
+    }
+}
+echo "O Atalho é igual ao Original? " . ehIgual($atalho, $original) . PHP_EOL; // (os quais foram afetados pelo atalho, logo, sao iguais)
+echo "A Copia é igual ao Original? " . ehIgual($copia, $original) . PHP_EOL; // (o qual o original foi alterado pelo atalho, logo a copia e o original são diferentes)
+echo "\n\n";
+
+
+echo "\n================== CONFIG COPIA =================\n";
+echo $copia->resumo();
+echo "=================================================\n";
+
+echo "\n================ CONFIG ORIGINAL ================\n";
+echo $original->resumo();
+echo "=================================================\n";
+
+echo "\n================== CONFIG ATALHO ================\n";
+echo $atalho->resumo();
+echo "=================================================\n";
+
 ?>
